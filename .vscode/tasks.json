@@ -1,0 +1,54 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: g++.exe build active file",
+            "command": "C:/MinGW/bin/g++.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${workspaceFolder}/Home/build/${fileBasenameNoExtension}.exe",
+                "-lbgi",
+                "-lgdi32",
+                "-lcomdlg32",
+                "-luuid",
+                "-loleaut32",
+                "-lole32"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PATH": "C:\\MinGW\\bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compiles active C++ file with MinGW 32-bit and links WinBGIm (graphics.h) libraries into Home/build/."
+        },
+        {
+            "type": "shell",
+            "label": "Run active C++ file",
+            "command": "${workspaceFolder}/Home/build/${fileBasenameNoExtension}.exe",
+            "options": {
+                "cwd": "${workspaceFolder}/Home/build",
+                "env": {
+                    "PATH": "C:\\MinGW\\bin;${env:PATH}"
+                }
+            },
+            "dependsOn": "C/C++: g++.exe build active file",
+            "problemMatcher": [],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "detail": "Builds and executes the compiled binary from Home/build/."
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+# Compiled binaries
+Home/build/
+*.exe
+*.o
+*.obj
+
+# Temporary test files
+test_compile.ps1
+build_test.bat
+err.txt
+out.txt
+compile_log.txt
